@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Docker-specific files
+.dockerignore
+docker-compose.override.yml
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Postgres data volume (never commit a database!)
+postgres/data/
