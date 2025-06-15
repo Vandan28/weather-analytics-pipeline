@@ -17,9 +17,9 @@ services:
     image: apache/airflow:3.0.2
     ports:
       - 8000:8080
-    envirinment:
+    environment:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgesql+psycopg2://airflow:airflow@db:5432/airflow_db
-    volume:
+    volumes:
       - ./airflow/dag:/opt/airflow/dags
     depends_on:
       - db
