@@ -10,11 +10,20 @@ def fetch_data():
         response.raise_for_status()
         print("request seccessfull.")
         return response.json()
+
+        # if 'error' in data:
+        #     error_info = data['error']['info']
+        #     print(f"API returned an error: {error_info}")
+        #     raise Exception(f"API Error: {error_info}")
+        # # --- End of new code ---
+
+        # print("Request successful and payload contains weather data.")
+        # return data
     except requests.exceptions.RequestException as e:
         print(f"An error occured{e}")
         raise
 
-# fetch_data() 
+#fetch_data() 
 # comment the actual fetch_data() and dont call it for now, so we can save api calls as we have limited api request calls
 # for now we are using the below data for 'New York' city just to make our postgresql database
 def moc_fetch_data():

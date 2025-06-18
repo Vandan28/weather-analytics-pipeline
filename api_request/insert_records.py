@@ -1,5 +1,5 @@
 import psycopg2
-from api_request import moc_fetch_data
+from api_request import moc_fetch_data, fetch_data
 
 def connect_to_db():
     print("Connecting to Postgresql database....")
@@ -76,6 +76,7 @@ def main():
     try:
         with connect_to_db() as conn:
             data= moc_fetch_data()
+            # data = fetch_data()
             # conn=connect_to_db()
             create_table(conn)
             insert_data(conn,data)
