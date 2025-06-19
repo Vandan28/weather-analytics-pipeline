@@ -45,7 +45,7 @@ services:
     - db
   networks:
     - my-network
-  command: debug
+  command: run
 
   
 networks:
