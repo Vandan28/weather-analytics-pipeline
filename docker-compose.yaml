@@ -25,6 +25,7 @@ services:
   volumes: # portals to room #2 docker container from room #1 local machine
     - ./airflow/dags:/opt/airflow/dags #portal a
     - ./api_request:/opt/airflow/api_request # portal b
+    - /var/run/docker.sock:/var/run/docker.sock
   depends_on:
     - db
   networks:
