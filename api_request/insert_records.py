@@ -1,5 +1,6 @@
 import psycopg2
 from api_request import moc_fetch_data, fetch_data
+import datetime
 
 def connect_to_db():
     print("Connecting to Postgresql database....")
@@ -62,7 +63,7 @@ def insert_data(conn, data):
             weather['weather_descriptions'][0],
             weather['wind_speed'],
             location['localtime'],
-            location['utc_offset']
+            location['utc_offset'],
         ))
 
         conn.commit()
@@ -71,12 +72,14 @@ def insert_data(conn, data):
     except psycopg2.Error as e:
         print(f'Failed to insert data into database {e}')
         raise 
+    except KeyError as e:
+        print(f" KeyError: Failed to insert data {e}")
 
 def main():
     try:
         with connect_to_db() as conn:
-            data= moc_fetch_data()
-            # data = fetch_data()
+            # data= moc_fetch_data()
+            data = fetch_data()
             # conn=connect_to_db()
             create_table(conn)
             insert_data(conn,data)
@@ -89,4 +92,3 @@ def main():
     #     if 'conn' in locals():
     #         conn.close()
     #         print('Database connection closed.')
- 

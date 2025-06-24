@@ -9,7 +9,7 @@ sources:
           - name: id
           - name: city
           - name: temperature
-          - name: weather_descrptions
+          - name: weather_descriptions
           - name: wind_speed
           - name: time
           - name: inserted_at

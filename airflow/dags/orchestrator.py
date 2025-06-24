@@ -15,7 +15,7 @@ from insert_records import main
 
 default_args= {
     'description':'A dag to orchestrate data',
-    'start_date':datetime(2025,6,17),
+    'start_date':datetime(2025,6,23),
     'catchup':False, 
 }
 
@@ -28,5 +28,5 @@ dag = DAG(
 with dag:
     task1= PythonOperator(
         task_id='insert_records',
-        python_callable= main,
+        python_callable= main,  
     )

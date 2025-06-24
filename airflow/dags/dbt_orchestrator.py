@@ -8,7 +8,7 @@ from docker.types import Mount
 default_args= {
     'description':'A dag to orchestrate data',
     'start_date':datetime(2025,6,17),
-    'catchup':False, 
+    'catchup':False,
 }
 
 dag = DAG(

@@ -1,8 +1,11 @@
 import requests
 import os
-from dotenv import load_dotenv
-api_key=os.getenv("api_key")
-api_url= f"http://api.weatherstack.com/current?access_key={api_key}&query=New York"
+#from dotenv import load_dotenv
+from airflow.hooks.base import BaseHook
+
+api_conn= BaseHook.get_connection('weather_api_key')
+api_key= api_conn.password
+api_url= f"http://api.weatherstack.com/current?access_key={api_key}&query= London, United Kingdom"
 
 def fetch_data():
     try:
@@ -23,7 +26,8 @@ def fetch_data():
         print(f"An error occured{e}")
         raise
 
-#fetch_data() 
+
+fetch_data() 
 # comment the actual fetch_data() and dont call it for now, so we can save api calls as we have limited api request calls
 # for now we are using the below data for 'New York' city just to make our postgresql database
 def moc_fetch_data():
